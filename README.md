@@ -253,13 +253,69 @@ The reward function separately rewards and punishes the translation and rotation
 When the desired position or angle is reached, the agent will be extra rewarded by a greater amount.
 The decision, whether a goal is reachd is made by implementing tollerances around the desired states, which can be widened and narrowed.
 
+```python
+# Translation Finish
+tolerance = 0.0005
+if np.linalg.norm(aktPos - finish) < tolerance:
+    print("TCP reached Endpoint!")
+    TRANS = True
+    tmpReward = reward + 2000
+    tmpReward = tmpReward - self.cntStep * 30
+    
+    if tmpReward < 300:
+        reward = 300
+    else:
+        reward = tmpReward
+
+    self.Terminated = True
+
+# Rotation Finish
+tolerance = 0.5
+if (abs(finishANG - aktANG) < tolerance):
+    ROT = True
+    if not self.reachedAngle:
+        print("Angle reached Endpoint!")
+        ROT = True
+        reward += 300
+    else:
+        reward += 100
+```
+
 To incentivize the desired behavior and make the agent follow the trajectory, he is given a linear growing positive reward for proceeding along the trajectory.
+
+```python
+# Translation reward
+v = finish - startPos
+w = aktPos - startPos
+t = np.dot(w, v) / np.dot(v, v)
+t_clamped = np.clip(t, 0, 1)
+reward = reward + t_clamped * 100
+```
 
 When the agent is displacing from the trajectory a value grwing with the distance is subtracted from the reward.
 The deviance of the current TCP angele from the desired angle is subtracted from the reward as well.
 
+```python
+# Punish for distancing from trajectory
+projection = startPos + t_clamped * v
+distance = np.linalg.norm(aktPos - projection)
+reward = reward - distance * 100
+
+# Rotation reward
+if (reward > 0):
+    difANG = 20 - abs(finishANG - aktANG)
+    if difANG >0:
+        reward += difANG * 100
+```
+
 As a result the robot learns not to crash into a wall and  starts following the trajectory until it reaches the endpoint.
 It also learns to change its TCP angle by the desired 20 deg.
+
+```python
+if TRANS and ROT:
+    reward += 10000
+    print("\nSuccess!!! Reached Endpoint & Angle")
+```
 
 The specific reward ammounts and tolerances were observed to have great impact on the performance of the agent.
 
