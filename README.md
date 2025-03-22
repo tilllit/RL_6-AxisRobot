@@ -33,9 +33,10 @@ The agent in the environment is a robotic arm with 6 joints. It's kinematic prop
 <br />
 
 The agent receives an array with angles for the 6 joints and returns the x, y and z position in 3D space as well as the 3 euler angles for the orientation of the TCP.
+The resulting orientation can be plotted like this:
 
 <p align="center">
-  <img height="143" width="124" src="Assets/RobotKinematic.png">
+  <img height="400" width="450" src="Assets/RobotKinematic.png">
 </p>
 
 ## Algorithm
