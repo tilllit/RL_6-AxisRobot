@@ -13,18 +13,13 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 - REINFORCE Algorithm
 - Neural Net
 - Reward function
-
-- [Future improvements](#Future improvements)
-
-
-
-## Future improvements
+- [GIF](https://github.com/tilllit/RL_6-AxisRobot?tab=readme-ov-file#results)
 
 
 
 
 
-
+## Results
 
 <p align="center">
   <img height="640" width="960" src="Assets/UntilTCP.gif">
