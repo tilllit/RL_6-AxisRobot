@@ -75,6 +75,60 @@ Example:
 The used algorithm
 
 ## NeuralNet
+This policy network is designed for a reinforcement learning task where the agent controls a system with multiple joints. It takes an input state (e.g., joint angles) and outputs logits for discrete action options for each joint.
+
+## Constructor (`__init__`)
+
+**Parameters:**
+- **`in_dim`**: Dimension of the input state (e.g., 6 joint angles).
+- **`num_joints`**: Number of joints (default: 6).
+- **`num_options`**: Number of discrete options per joint (default: 3, representing actions like -0.1, 0.0, +0.1).
+
+**Architecture:**
+- **Input Layer:**  
+  A linear layer transforms the input from `in_dim` to 64 units.
+
+- **Hidden Layers:**  
+  1. ReLU activation followed by a linear layer mapping 64 to 128 units.  
+  2. Another ReLU activation followed by a linear layer mapping 128 back to 64 units.  
+  3. A final ReLU activation.
+
+- **Output Layer:**  
+  A linear layer maps from 64 units to `out_dim`, where `out_dim = num_joints * num_options` (e.g., 6 × 3 = 18).
+
+**Additional Initialization:**
+- `self.onpolicy_reset()`: Resets lists for storing log probabilities, rewards, and entropy values.
+- `self.train()`: Sets the model to training mode.
+
+## Code Snippet
+
+```python
+class Pi(nn.Module):
+    def __init__(self, in_dim, num_joints=6, num_options=3):
+        super(Pi, self).__init__()
+        self.num_joints = num_joints
+        self.num_options = num_options
+        out_dim = num_joints * num_options  # 6 * 3 = 18
+
+        self.model = nn.Sequential(
+            nn.Linear(in_dim, 64),   # Input layer: in_dim -> 64
+            nn.ReLU(),
+            nn.Linear(64, 128),      # Hidden layer: 64 -> 128
+            nn.ReLU(),
+            nn.Linear(128, 64),      # Hidden layer: 128 -> 64
+            nn.ReLU(),
+            nn.Linear(64, out_dim)   # Output layer: 64 -> out_dim (num_joints * num_options)
+        )
+        
+        self.onpolicy_reset()  # Initialize log probabilities, rewards, and entropies
+        self.train()           # Set model to training mode
+
+´´´
+
+
+
+
+
 
 ## Reward
 
