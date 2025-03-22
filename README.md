@@ -14,7 +14,7 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 - Neural Net
 - Reward function
 
-- Future improvements
+- [Future improvements](#Future improvements)
 
 
 
