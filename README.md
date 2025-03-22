@@ -67,6 +67,10 @@ If the position exceeds the boundarys of the observation space, a reset is trigg
 Otherwise it calculates and returns the reward for the updated state. <br />
 Example:
 
+<p align="center">
+  <img height="360" width="480" src="Assets/Environment.gif" loop=infinite>
+</p>
+
 ### Trajectory
 
 
@@ -133,7 +137,7 @@ class Pi(nn.Module):
 ## FutureWork
 
 <p align="center">
-  <img height="640" width="960" src="Assets/UntilTCP.gif">
+  <img height="640" width="960" src="Assets/UntilTCP.gif" loop=infinite>
 </p>
 
 gamma1 = 0.99
