@@ -76,7 +76,7 @@ Example:
 
 ## Algorithm
 
-The used algorithm
+The used algorithm is REINFORCE.
 
 ## NeuralNet
 This section describes the used Neural Net which will, after a successfull learning periode, represent the policy of the agent. It takes an input state (joint angles) and outputs the logits for the discrete action options for each joint.
