@@ -30,12 +30,11 @@ The agent in the environment is a robotic arm with 6 joints. It's kinematic prop
 | theta4 | 0 | 0.13105 | 90 |
 | theta5 | 0 | 0.08535 | -90 |
 | theta6 | 0 | 0.0921 | 0 |
-
 <br />
 
 The agent receives an array with angles for the 6 joints and returns the x, y and z position in 3D space as well as the 3 euler angles for the orientation of the TCP.
 
-## Algorithm
+
 
 ## Algorithm
 
