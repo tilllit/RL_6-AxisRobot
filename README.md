@@ -14,6 +14,7 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 - [REINFORCE Algorithm](#Algorithm)
 - [Neural Net](#NeuralNet)
 - [Reward](#Reward)
+- [Results](#Results)
 - [Future Work](#FutureWork)
 
 
@@ -133,6 +134,28 @@ class Pi(nn.Module):
 
 
 ## Reward
+
+In the beginning the movements of the agent often lead to the robot colliding with the walls of the observation space.
+To punish this behavior, the function returns a greater negative reward and resets the environment.
+
+The reward function separately rewards and punishes the translation and rotation of the robot.
+When the desired position or angle is reached, the agent will be extra rewarded by a greater amount.
+The decision, whether a goal is reachd is made by implementing tollerances around the desired states, which can be widened and narrowed.
+
+To incentivize the desired behavior and make the agent follow the trajectory, he is given a linear growing positive reward for proceeding along the trajectory.
+
+When the agent is displacing from the trajectory a value grwing with the distance is subtracted from the reward.
+The deviance of the current TCP angele from the desired angle is subtracted from the reward as well.
+
+As a result the robot learns not to crash into a wall and  starts following the trajectory until it reaches the endpoint.
+It also learns to change its TCP angle by the desired 20 deg.
+
+The specific reward ammounts and tolerances were observed to have great impact on the performance of the agent.
+
+
+## Results
+
+
 
 ## FutureWork
 
