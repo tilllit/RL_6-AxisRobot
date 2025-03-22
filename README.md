@@ -9,15 +9,22 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 
 ## Info
 
-- Environment
-- REINFORCE Algorithm
-- Neural Net
-- Reward function
+- [Environment](#Environment)
+- [REINFORCE Algorithm](#Algorithm)
+- [Neural Net](#NeuralNet)
+- [Reward](#Reward)
 - [Future Work](#FutureWork)
 
 
+## Environment
 
+## Algorithm
 
+## Algorithm
+
+## NeuralNet
+
+## Reward
 
 ## FutureWork
 
