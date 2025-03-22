@@ -243,6 +243,12 @@ class Pi(nn.Module):
 In the beginning the movements of the agent often lead to the robot colliding with the walls of the observation space.
 To punish this behavior, the function returns a greater negative reward and resets the environment.
 
+```python
+# Punish crashing onto wall
+if self.checkBounds():
+    reward = reward - 1000
+```
+
 The reward function separately rewards and punishes the translation and rotation of the robot.
 When the desired position or angle is reached, the agent will be extra rewarded by a greater amount.
 The decision, whether a goal is reachd is made by implementing tollerances around the desired states, which can be widened and narrowed.
