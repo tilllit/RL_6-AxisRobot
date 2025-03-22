@@ -240,6 +240,8 @@ class Pi(nn.Module):
 
 ## Reward
 
+1. **Collision**
+
 In the beginning the movements of the agent often lead to the robot colliding with the walls of the observation space.
 To punish this behavior, the function returns a greater negative reward and resets the environment.
 
@@ -248,6 +250,9 @@ To punish this behavior, the function returns a greater negative reward and rese
 if self.checkBounds():
     reward = reward - 1000
 ```
+<br />
+
+2. **Finish reward**
 
 The reward function separately rewards and punishes the translation and rotation of the robot.
 When the desired position or angle is reached, the agent will be extra rewarded by a greater amount.
@@ -280,7 +285,10 @@ if (abs(finishANG - aktANG) < tolerance):
     else:
         reward += 100
 ```
+<br />
 
+3. **Incremental reward**
+   
 To incentivize the desired behavior and make the agent follow the trajectory, he is given a linear growing positive reward for proceeding along the trajectory.
 
 ```python
@@ -291,6 +299,9 @@ t = np.dot(w, v) / np.dot(v, v)
 t_clamped = np.clip(t, 0, 1)
 reward = reward + t_clamped * 100
 ```
+<br />
+
+4. **Punish deviation**
 
 When the agent is displacing from the trajectory a value grwing with the distance is subtracted from the reward.
 The deviance of the current TCP angele from the desired angle is subtracted from the reward as well.
@@ -307,6 +318,9 @@ if (reward > 0):
     if difANG >0:
         reward += difANG * 100
 ```
+<br />
+
+5. **Goal achieved**
 
 As a result the robot learns not to crash into a wall and  starts following the trajectory until it reaches the endpoint.
 It also learns to change its TCP angle by the desired 20 deg.
