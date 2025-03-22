@@ -123,7 +123,7 @@ class Pi(nn.Module):
         self.onpolicy_reset()  # Initialize log probabilities, rewards, and entropies
         self.train()           # Set model to training mode
 
-´´´
+```
 
 
 
