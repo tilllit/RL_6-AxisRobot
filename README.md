@@ -91,6 +91,18 @@ for t in reversed(range(T)):
     rets[t] = future_ret
 ```
 
+The following example illustrates the use of the discount factor gamma. It is used so that if an episode receives a high reward, the actions taken to reach that point are given greater weight, resulting in a more sophisticated learning process. The following table illustrates this relationship.
+
+# Episode Performance Overview
+
+| Episode | Collected Rewards       | Discounted Returns                          | Calculated Loss           |
+|:---------:|:-------------------------:|:---------------------------------------------:|:---------------------------:|
+| 1       | `[1, 2, 30, 40, 100]`   | `[167.25456, 167.9339, 167.61, 139, 100]`    | `-370.90423095703125`      |
+| 2       | `[1, 0.4, 1, 2, 5]`     | `[9.1196785, 8.201695, 7.8805, 6.95, 5]`      | `-18.580936794281005`      |
+| 3       | `[1, 1, 1, 1, 100]`     | `[100, 100, 100, 100, 100]`                  | `-250.005`                |
+
+
+
 2. **Tensor Conversion:**
 
 - The computed returns and the recorded log probabilities (`pi.log_probs`) are converted into PyTorch tensors.
