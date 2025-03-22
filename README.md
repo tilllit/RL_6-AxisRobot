@@ -75,7 +75,7 @@ Example:
 The used algorithm
 
 ## NeuralNet
-This policy network is designed for a reinforcement learning task where the agent controls a system with multiple joints. It takes an input state (e.g., joint angles) and outputs logits for discrete action options for each joint.
+This section describes the used Neural Net which will, after a successfull learning periode, represent the policy of the agent. It takes an input state (joint angles) and outputs the logits for the discrete action options for each joint.
 
 **Parameters:**
 - **`in_dim`**: Dimension of the input state (e.g., 6 joint angles).
