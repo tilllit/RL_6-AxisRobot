@@ -19,8 +19,12 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 
 ## Task
 
-The specific task being solved by this project is to drive on a 10mm long trajectory through 3D space, while fullfilling a 20 degree rotation of the TCP (Tool Center Point) in reference to the Z-axis. <br />
+The specific task being solved by this project is to drive on a 10mm long trajectory through 3D space, while fulfilling a 20 degree rotation of the TCP (Tool Center Point) in reference to the Z-axis. <br />
 <br />
+
+
+
+
 
 Another requirement was to use RL (Reinforcement Learning): function approximation with a Neural Network as an approach to solve the problem. <br />
 
@@ -47,12 +51,23 @@ The agent in the environment is a robotic arm with 6 joints. It's kinematic prop
 | theta6 | 0 | 0.0921 | 0 |
 <br />
 
-The agent receives an array with angles for the 6 joints and returns the x, y and z position in 3D space as well as the 3 euler angles for the orientation of the TCP.
+The agent receives an array with angles for the 6 joints, performas a forward kinematic and returns the X, Y and Z position in 3D space as well as the 3 euler angles for the orientation of the TCP.
 The resulting orientation can be plotted like this with the plot-function within the RobotArm-class:
 
 <p align="center">
   <img height="400" width="450" src="Assets/RobotKinematic.png">
 </p>
+
+
+### Step
+
+As action the step-function expects an array of 6 angle-deltas usualy with values of 0.1, 0 and -0.1 to increase or decrease the joint angles of the robot arm. <br />
+It then updates the agents state and checks, if the TCP is still within a defined observation-space. <br />
+If the position exceeds the boundarys of the observation space, a reset is triggered. <br />
+Otherwise it calculates and returns the reward for the updated state. <br />
+Example:
+
+### Trajectory
 
 
 ## Algorithm
