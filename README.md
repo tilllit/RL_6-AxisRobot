@@ -20,7 +20,7 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 
 
 
-## Prospact
+## Prospect
 
 <p align="center">
   <img height="640" width="960" src="Assets/UntilTCP.gif">
