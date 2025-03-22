@@ -93,7 +93,7 @@ for t in reversed(range(T)):
 
 The following example illustrates the use of the discount factor gamma. It is used so that if an episode receives a high reward, the actions taken to reach that point are given greater weight, resulting in a more sophisticated learning process. The following table illustrates this relationship.
 
-# Episode Performance Overview
+#### Episode Performance Overview
 
 | Episode | Collected Rewards       | Discounted Returns                          | Calculated Loss           |
 |---------|-------------------------|---------------------------------------------|---------------------------|
