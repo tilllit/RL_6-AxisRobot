@@ -9,6 +9,7 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 
 # Content
 
+- [RL Task](#Task)
 - [Environment](#Environment)
 - [REINFORCE Algorithm](#Algorithm)
 - [Neural Net](#NeuralNet)
@@ -16,7 +17,21 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 - [Future Work](#FutureWork)
 
 
+## Task
+
+The specific task being solved by this project is to drive on a 10mm long trajectory through 3D space, while fullfilling a 20 degree rotation of the TCP (Tool Center Point) in reference to the Z-axis. <br />
+<br />
+
+Another requirement was to use RL (Reinforcement Learning): function approximation with a Neural Network as an approach to solve the problem. <br />
+
+
+
+
 ## Environment
+
+The environment was designed to be compatible with the openai [Gymnasium-API](https://gymnasium.farama.org/api/env/). <br />
+It has a reset and a step function and contains the agent, which is the robotic arm. <br />
+
 
 ### Robot Arm
 
@@ -33,13 +48,16 @@ The agent in the environment is a robotic arm with 6 joints. It's kinematic prop
 <br />
 
 The agent receives an array with angles for the 6 joints and returns the x, y and z position in 3D space as well as the 3 euler angles for the orientation of the TCP.
-The resulting orientation can be plotted like this:
+The resulting orientation can be plotted like this with the plot-function within the RobotArm-class:
 
 <p align="center">
   <img height="400" width="450" src="Assets/RobotKinematic.png">
 </p>
 
+
 ## Algorithm
+
+The used algorithm
 
 ## NeuralNet
 
