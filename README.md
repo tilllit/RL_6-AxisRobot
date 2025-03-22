@@ -77,8 +77,6 @@ The used algorithm
 ## NeuralNet
 This policy network is designed for a reinforcement learning task where the agent controls a system with multiple joints. It takes an input state (e.g., joint angles) and outputs logits for discrete action options for each joint.
 
-## Constructor (`__init__`)
-
 **Parameters:**
 - **`in_dim`**: Dimension of the input state (e.g., 6 joint angles).
 - **`num_joints`**: Number of joints (default: 6).
