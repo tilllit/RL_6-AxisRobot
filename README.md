@@ -7,7 +7,7 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 
 <br />
 
-## Info
+# Content
 
 - [Environment](#Environment)
 - [REINFORCE Algorithm](#Algorithm)
@@ -17,6 +17,23 @@ The used REINFORCE algorithm is based on an implementation from "Foundations of 
 
 
 ## Environment
+
+### Robot Arm
+
+The agent in the environment is a robotic arm with 6 joints. It's kinematic properties are defined in the following Denavit-Hartenberg matix: <br />
+
+| joint angle [deg] | link length [m] | link offset [m] | link twist [deg] |
+| :------- | :------: | :-------: | -------: |
+| theta1 | 0 | 0.15185 | 90 |
+| theta2 | -0.24355 | 0 | 0 |
+| theta3 | -0.2132  | 0 | 0 |
+| theta4 | 0 | 0.13105 | 90 |
+| theta5 | 0 | 0.08535 | -90 |
+| theta6 | 0 | 0.0921 | 0 |
+
+<br />
+
+The agent receives an array with angles for the 6 joints and returns the x, y and z position in 3D space as well as the 3 euler angles for the orientation of the TCP.
 
 ## Algorithm
 
