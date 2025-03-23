@@ -72,8 +72,6 @@ Example:
   <img height="360" width="480" src="Assets/Environment.gif" loop=infinite>
 </p>
 
-### Trajectory
-
 
 ## Algorithm
 
