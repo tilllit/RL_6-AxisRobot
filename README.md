@@ -366,12 +366,11 @@ One can observe that in the beginning the algorithm has many collision with the 
 <p align="center">
   <img height="640" width="960" src="Assets/FullGIF_withoutTraj.gif" loop=infinite>
 </p>
+<br />
 
 
 
 
-
--> rennt zu beginn in die wand, am ende will man stärker bestrafen um besssere trajektorie zu gewinnen... -> wir haben mittelweg gewählt
 
 ### Figures of merit
 In order to present our figures of merit, we begin with a plot showing the cumulative reward, loss, and MSE computed over the epochs. In the figure below, you can see the outcome of a run in which the policy learns both to reach the TCP and to adjust its orientation. The MSE and the reward are self-explanatory. However, it is important to note that the loss in our approach should not be understood in the same way as, for example, the MSE in supervised learning. In supervised learning we expect the loss to shrink over time since backpropagation adjusts the parameters to reduce the error. Here, the observed increase in the loss may seem counterintuitive at first.
