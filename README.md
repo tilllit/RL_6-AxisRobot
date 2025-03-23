@@ -402,6 +402,24 @@ $$
   <img height="640" width="960" src="Assets/TestTotalReward_and_EpochMSE.png" >
 </p>
 
+
+#### Calculation of MSE
+
+```python
+def computeMSE(self, currentPos, currentAngle, startPos, finish, finishAngle, weight_angle=1.0):
+    v = finish - startPos
+    t = np.dot(currentPos - startPos, v) / np.dot(v, v)
+    P_closest = startPos + t * v
+    error_pos = currentPos - P_closest
+    mse_pos = np.mean(error_pos ** 2)
+    
+    error_angle = currentAngle - finishAngle
+    mse_angle = error_angle ** 2
+    mse_total = (mse_pos + weight_angle * mse_angle) / 2.0  # Division durch 2 für Durchschnitt
+    return mse_total
+```
+
+
 ## FutureWork
 
 To improve the algorithm in the future the idea of cirriculum learning should be introduced to update the tolerances and reward values.
