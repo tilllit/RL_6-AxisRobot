@@ -368,7 +368,7 @@ $$
 
 #### Gradient of the Loss
 
-Using the chain rule, the gradient of the loss with respect to \(\theta\) is given by:
+Using the chain rule, the gradient of the loss with respect to $$\theta$$ is given by:
 
 $$
 \nabla_\theta L = - R \cdot \nabla_\theta \log\big(\pi(a \mid s; \theta)\big)
