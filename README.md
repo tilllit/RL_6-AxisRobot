@@ -345,6 +345,10 @@ The specific reward ammounts and tolerances were observed to have great impact o
 
 
 ## Results
+<p align="center">
+  <img height="640" width="960" src="Assets/Plot_2025-03-1921-00-49.png">
+</p>
+
 
 
 
