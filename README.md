@@ -357,6 +357,9 @@ The specific reward ammounts and tolerances were observed to have great impact o
   <img height="640" width="960" src="Assets/UntilTCP.gif" loop=infinite>
 </p>
 
+<p align="center">
+  <img height="640" width="960" src="Assets/FullGIF_withoutTraj.gif" loop=infinite>
+</p>
 
 
 
