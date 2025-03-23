@@ -348,9 +348,14 @@ The specific reward ammounts and tolerances were observed to have great impact o
 
 ## Results
 
-
+-> rennt zu beginn in die wand, am ende will man stärker bestrafen um besssere trajektorie zu gewinnen... -> wir haben mittelweg gewählt
 
 ## FutureWork
+
+To improve the algorithm in the future the idea of cirriculum learning should be introduced to update the tolerances and reward values.
+In the beginning the tolerances should be wide, the positive finish and incremental reward should be high while the  negative reward for the distance and collision should be low to teach the agent to move in the desired direction. <br />
+In later episodes where the  agent is finishing the translation and rotatioon task very often the tolerrances should get smaler and the negative rewards should be risen to train the agent to optimize the trajectory, while the finish and incremental rewards could be lowered to be less dominant. <br />
+This way the algorithm should learn faster while achieving better results on following the trajectory.
 
 <p align="center">
   <img height="640" width="960" src="Assets/UntilTCP.gif" loop=infinite>
