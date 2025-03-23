@@ -350,6 +350,10 @@ The specific reward ammounts and tolerances were observed to have great impact o
 
 -> rennt zu beginn in die wand, am ende will man stärker bestrafen um besssere trajektorie zu gewinnen... -> wir haben mittelweg gewählt
 
+### Figures of merit
+
+...
+
 ## FutureWork
 
 To improve the algorithm in the future the idea of cirriculum learning should be introduced to update the tolerances and reward values.
