@@ -345,8 +345,20 @@ The specific reward ammounts and tolerances were observed to have great impact o
 
 
 ## Results
-In order to show our results we first start with a plot over the cumulated reward, loss and the MSE computed over the epochs. 
+In order to present our results, we begin with a plot showing the cumulative reward, loss, and MSE computed over the epochs. In the figure below, you can see the outcome of a run in which the policy learns both to reach the TCP and to adjust its orientation. The MSE and the reward are self-explanatory. However, it is important to note that the loss in our approach should not be understood in the same way as, for example, the MSE in supervised learning. In supervised learning we expect the loss to shrink over time since backpropagation adjusts the parameters to reduce the error. Here, the observed increase in the loss may seem counterintuitive at first.
 
+The reason for this behavior lies in the way the loss is computed. The loss is defined as:
+
+
+```ini
+loss = - (log_probs * returns).sum() - exp * total_entropy
+
+
+```
+
+Since the logarithm of a probability (which lies between 0 and 1) is always ≤ 0, the term log_probs * returns is negative for a good action (where log_probs is close to 0) and becomes even more negative for a bad action. The leading minus sign then converts these negative values into positive loss values. Hence, a bad action results in a much higher positive loss compared to a good action. The optimizer minimizes this loss via gradient descent, thereby indirectly maximizing the return.
+
+The only reason the loss increases over time is that the cumulative reward grows as the policy improves, scaling the loss upward. However, this does not alter the optimization process: it is the direction of the gradient—not the absolute loss value—that guides the parameter updates. So, even if a well-performing policy yields a higher numerical loss due to larger returns, the gradients still point in the correct direction for further improvement.
 
 
 <p align="center">
