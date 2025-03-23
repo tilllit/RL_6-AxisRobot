@@ -345,6 +345,11 @@ The specific reward ammounts and tolerances were observed to have great impact o
 
 
 ## Results
+
+After approximately 200000 episodes of training the following results were obtained.
+One can observe that in the beginning the algorithm has many collision with the wall, but after some times learns the way onto the observation space and along the trjectory into the end point. When punishing to much for not following the trajectory close enough, the algorithm did not overcome the initial collisions. Punishing less lead to unsatisfying trajectories. So the values chosen in the reward function wehe a compromise between functionality and end-performance.
+
+
 <p align="center">
   <img height="640" width="960" src="Assets/Plot_2025-03-1921-00-49.png">
 </p>
@@ -426,8 +431,3 @@ To improve the algorithm in the future the idea of cirriculum learning should be
 In the beginning the tolerances should be wide, the positive finish and incremental reward should be high while the  negative reward for the distance and collision should be low to teach the agent to move in the desired direction. <br />
 In later episodes where the  agent is finishing the translation and rotatioon task very often the tolerrances should get smaler and the negative rewards should be risen to train the agent to optimize the trajectory, while the finish and incremental rewards could be lowered to be less dominant. <br />
 This way the algorithm should learn faster while achieving better results on following the trajectory.
-
-
-
-gamma1 = 0.99
-gamma2 = 0.70
