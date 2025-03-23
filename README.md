@@ -347,7 +347,7 @@ The specific reward ammounts and tolerances were observed to have great impact o
 ## Results
 
 After approximately 100.000 episodes of training the following results were obtained.
-One can observe that in the beginning the algorithm has many collision with the wall, but after some times learns the way onto the observation space and along the trjectory into the end point. When punishing to much for not following the trajectory close enough, the algorithm did not overcome the initial collisions. Punishing less lead to unsatisfying trajectories. So the values chosen in the reward function wehe a compromise between functionality and end-performance.
+The robot follows the trajectory to the end point while achieving a smooth rotation of 20 degrees.
 
 
 <p align="center">
@@ -355,7 +355,8 @@ One can observe that in the beginning the algorithm has many collision with the 
 </p>
 
 
-
+The following animation shows the process of training over the 100.000 episodes.
+One can observe that in the beginning the algorithm has many collision with the wall, but after some times learns the way onto the observation space and along the trjectory into the end point. When punishing to much for not following the trajectory close enough, the algorithm did not overcome the initial collisions. Punishing less lead to unsatisfying trajectories. So the values chosen in the reward function wehe a compromise between functionality and end-performance.
 
 
 <p align="center">
