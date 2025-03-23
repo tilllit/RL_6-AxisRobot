@@ -351,7 +351,7 @@ The robot follows the trajectory to the end point while achieving a smooth rotat
 
 
 <p align="center">
-  <img height="640" width="960" src="Assets/Plot_2025-03-1921-00-49.png">
+  <img height="640" width="960" src="Assets/Plot_2025-03-2109-41-59.png">
 </p>
 
 
