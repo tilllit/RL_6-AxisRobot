@@ -352,13 +352,40 @@ The reason for this behavior lies in the way the loss is computed. The loss is d
 
 ```ini
 loss = - (log_probs * returns).sum() - exp * total_entropy
-
-
 ```
+
+
 
 Since the logarithm of a probability (which lies between 0 and 1) is always ≤ 0, the term log_probs * returns is negative for a good action (where log_probs is close to 0) and becomes even more negative for a bad action. The leading minus sign then converts these negative values into positive loss values. Hence, a bad action results in a much higher positive loss compared to a good action. The optimizer minimizes this loss via gradient descent, thereby indirectly maximizing the return.
 
-The only reason the loss increases over time is that the cumulative reward grows as the policy improves, scaling the loss upward. However, this does not alter the optimization process: it is the direction of the gradient—not the absolute loss value—that guides the parameter updates. So, even if a well-performing policy yields a higher numerical loss due to larger returns, the gradients still point in the correct direction for further improvement.
+The only reason the loss increases over time is that the cumulative reward grows as the policy improves, scaling the loss upward. However, this does not alter the optimization process: it is the direction of the gradient—not the absolute loss value—that guides the parameter updates. So, even if a well-performing policy yields a higher numerical loss due to larger returns, the gradients still point in the correct direction for further improvement. 
+
+The loss is defined as:
+
+\[
+L(\theta)= -\log\big(\pi(a\mid s;\theta)\big) \times R
+\]
+
+where:
+- \(\pi(a\mid s;\theta)\) is the probability of taking action \(a\) in state \(s\) given the current parameters \(\theta\).
+- \(R\) is the reward obtained.
+- The negative sign ensures that maximizing the log-probability (and thereby the reward) is equivalent to minimizing the loss.
+
+##### Gradient of the Loss
+
+Using the chain rule, the gradient of the loss with respect to the parameters \(\theta\) is given by:
+
+\[
+\nabla_\theta L = - R \cdot \nabla_\theta \log\big(\pi(a\mid s;\theta)\big)
+\]
+
+where:
+- \(\nabla_\theta \log\big(\pi(a\mid s;\theta)\big)\) represents how sensitive the log-probability is to small changes in the parameters.
+- Multiplying by the reward \(R\) scales the gradient, meaning that actions with a higher reward have a greater influence on the parameter updates.
+- The negative sign indicates that updating the parameters in the opposite direction of the gradient will increase the log-probability of actions that led to higher rewards, effectively maximizing the expected reward.
+
+
+
 
 
 <p align="center">
