@@ -366,26 +366,13 @@ $$
 L(\theta) = -\log\big(\pi(a \mid s; \theta)\big) \times R
 $$
 
-where:
-- \(\pi(a \mid s; \theta)\) is the probability of taking action \(a\) in state \(s\) given parameters \(\theta\),
-- \(R\) is the reward received,
-- The negative sign ensures that maximizing the log-probability (and thus the reward) is equivalent to minimizing the loss.
-
-## Gradient of the Loss
+#### Gradient of the Loss
 
 Using the chain rule, the gradient of the loss with respect to \(\theta\) is given by:
 
 $$
 \nabla_\theta L = - R \cdot \nabla_\theta \log\big(\pi(a \mid s; \theta)\big)
 $$
-
-where:
-- \(\nabla_\theta \log\big(\pi(a \mid s; \theta)\big)\) represents the sensitivity of the log-probability to small changes in the parameters,
-- Multiplication by \(R\) scales the gradient so that actions with a higher reward have a larger impact,
-- The negative sign ensures that the parameter update (via gradient descent) moves in the direction that increases \(\log\big(\pi(a \mid s; \theta)\big)\) (i.e., improves the policy).
-
-
-
 
 
 <p align="center">
