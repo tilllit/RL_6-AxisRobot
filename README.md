@@ -345,6 +345,24 @@ The specific reward ammounts and tolerances were observed to have great impact o
 
 
 ## Results
+In order to show our results we first start with a plot over the cumulated reward, loss and the MSE computed over the epochs. 
+
+
+
+<p align="center">
+  <img height="640" width="960" src="Assets/TestTotalReward_and_EpochMSE.png" >
+</p>
+
+
+
+<p align="center">
+  <img height="640" width="960" src="Assets/UntilTCP.gif" loop=infinite>
+</p>
+
+
+
+
+
 
 -> rennt zu beginn in die wand, am ende will man stärker bestrafen um besssere trajektorie zu gewinnen... -> wir haben mittelweg gewählt
 
@@ -359,9 +377,7 @@ In the beginning the tolerances should be wide, the positive finish and incremen
 In later episodes where the  agent is finishing the translation and rotatioon task very often the tolerrances should get smaler and the negative rewards should be risen to train the agent to optimize the trajectory, while the finish and incremental rewards could be lowered to be less dominant. <br />
 This way the algorithm should learn faster while achieving better results on following the trajectory.
 
-<p align="center">
-  <img height="640" width="960" src="Assets/UntilTCP.gif" loop=infinite>
-</p>
+
 
 gamma1 = 0.99
 gamma2 = 0.70
