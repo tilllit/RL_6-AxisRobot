@@ -258,7 +258,7 @@ To punish this behavior, the function returns a greater negative reward and rese
 ```python
 # Punish crashing onto wall
 if self.checkBounds():
-    reward = reward - 1000
+    reward = reward - 100
 ```
 <br />
 
