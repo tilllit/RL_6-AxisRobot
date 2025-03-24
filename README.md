@@ -266,8 +266,8 @@ if self.checkBounds():
 
 The reward function separately rewards and punishes the translation and rotation of the robot.
 When the desired position or angle is reached, the agent will be extra rewarded by a greater amount.
-The decision, whether a goal is reachd is made by implementing tollerances around the desired states, which can be widened and narrowed.
-Assigning greate positive and negative rewards to the last step of a episode concerns all steps of the episode because of the "Discounted Return Calculation" discussed in the [Algorithm](#Algorithm) section. Therefore the network favours all of the decisions that led to achieving the goal, not only the last one.
+The decision, whether a goal is reachd is made by implementing tollerances around the desired states, which can be widened and narrowed. <br />
+Assigning greate positive and negative rewards to the last step of a episode concerns all steps of the episode because of the "Discounted Return Calculation" discussed in the [Algorithm](#Algorithm)-section. Therefore the network favours all of the decisions that led to achieving the goal, not only the last one.
 
 ```python
 # Translation Finish
